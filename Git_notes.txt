@@ -1,0 +1,84 @@
+----------------------------------
+Version Control - Git
+----------------------------------
+Using git: on a new directory, enabling git will start keeping track of the changes made to all the files contained in this directory.
+This program allows me to keep track of all the changes made to a file without having to re-name it every time.
+It will create a hidden folder with all the changes, with .
+It has three stages, the working stage (contains the current file), staging (buffer between the working and stored or "commited files") and history (final repository).
+
+----------------------------------
+Commands
+----------------------------------
+git init                     -- This innitialized git in the particular folder where the tracked data will be stored
+git status                   -- Gives information of which files are being tracked and what status they have, e.g. not tracked, added, etc.
+git add                      -- moves the file to the staging area
+git commit -m                -- moves the file to the history the -m option allows to write a commentary to remember what the file is about.
+git log --oneline            -- lists all the changes made to the files. Option --one gives the last commit; -five last 5 commits, etc..; --oneline
+git diff                     -- once a file is changed with the working stage, it can be checked for differences with the commited one (no need to add or commit first).
+git diff -- stat
+git commit -am               -- shortcut to commit: will add any file that's been commited once before and commit it in one command
+git rm
+git checkout (log number)    -- This command retrieves a file from the history. The log number is the one I get with the command git log --oneline
+git checkout master          -- No idea!
+
+git clone                    -- download repository from the clowd
+git push                     -- commit changes to the clowd
+git pull                     -- retrieves all the changes that are on the clown and downloads it to my computer
+---------------------------------
+Example wrokflow
+---------------------------------
+172-30-10-219:git_practice violerayon$ git init
+172-30-10-219:git_practice violerayon$ ls -a
+.	..	.git
+172-30-10-219:git_practice violerayon$ nano science.txt
+172-30-10-219:git_practice violerayon$ git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	science.txt
+nothing added to commit but untracked files present (use "git add" to track)
+172-30-10-219:git_practice violerayon$ git add science.txt
+172-30-10-219:git_practice violerayon$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   science.txt
+#
+172-30-10-219:git_practice violerayon$ git commit -m "this is to see how git works"
+[master (root-commit) 7896941] this is to see how git works
+ Committer: Violeta Rayon <violerayon@172-30-10-219.dynapool.nyu.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 science.txt
+
+172-30-10-219:git_practice violerayon$ git diff
+diff --git a/science.txt b/science.txt
+index 56c24c4..a8291a9 100644
+--- a/science.txt
++++ b/science.txt
+@@ -1 +1,2 @@
+-I study mutation sin the RNA that are pretty cool.
++I study mutations in the RNA that are pretty cool.
++When the experiments work that is.
+
+ 
+ 
+ 
